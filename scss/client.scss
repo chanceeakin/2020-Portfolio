@@ -1,0 +1,14 @@
+html,
+body {
+  font-family: "Inconsolata", monospace;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-weight: bold;
+}

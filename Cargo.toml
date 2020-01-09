@@ -1,0 +1,22 @@
+[package]
+authors = ["Chance Eakin"]
+edition = "2018"
+name = "2020-portfolio"
+version = "0.1.0"
+
+[[bin]]
+name = "client"
+path = "src/main.rs"
+
+[dependencies]
+strum = "0.13"
+strum_macros = "0.13"
+serde = "1"
+serde_derive = "1"
+stdweb = "0.4.20"
+yew = "0.11.0"
+
+
+[lib]
+name = "chancePortfolio"
+path = "src/lib.rs"

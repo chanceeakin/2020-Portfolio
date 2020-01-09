@@ -1,0 +1,32 @@
+{
+  "name": "wasm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Chance Eakin",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build:js": "rollup -c",
+    "build:rs": "cargo web build --target wasm32-unknown-unknown",
+    "build:scss": "node-sass --include-path scss scss/client.scss css/client.css",
+    "build:css": "postcss --use autoprefixer -o static/client.css css/client.css",
+    "build:style": "npm run build:scss && npm run build:css",
+    "build:copy": "cp target/deploy/client.css release/ && cp target/deploy/client.wasm release/ && cp target/deploy/index.html release/ && cp target/deploy/favicon.ico release/",
+    "build": "npm run clean:deploy && npm run build:rs && npm run build:js && npm run build:style && npm run build:copy",
+    "clean:deploy": "rm -rf /release",
+    "prod": "npm run build serve",
+    "serve": "serve -p 8080 release",
+    "watch:rs": "cargo web start --release",
+    "test": "echo \"Error: no tests!\" && exit 1"
+  },
+  "dependencies": {
+    "node-sass": "4.13.0",
+    "postcss": "7.0.25",
+    "rollup-plugin-babel": "4.3.3",
+    "rollup-plugin-uglify": "6.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "9.7.3",
+    "postcss-cli": "6.1.3"
+  }
+}
