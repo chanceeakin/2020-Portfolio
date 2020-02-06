@@ -2,12 +2,9 @@ use yew::prelude::*;
 
 pub struct Title {
     text: String,
-    link: ComponentLink<Self>,
 }
 
-pub enum Msg {
-    Ignore,
-}
+pub enum Msg {}
 
 #[derive(PartialEq, Properties, Clone)]
 pub struct Props {
@@ -18,17 +15,11 @@ impl Component for Title {
     type Message = Msg;
     type Properties = Props;
 
-    fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
-        Title {
-            text: props.text,
-            link,
-        }
+    fn create(props: Self::Properties, _: ComponentLink<Self>) -> Self {
+        Title { text: props.text }
     }
 
-    fn update(&mut self, msg: Self::Message) -> ShouldRender {
-        match msg {
-            Msg::Ignore => false,
-        };
+    fn update(&mut self, _: Self::Message) -> ShouldRender {
         false
     }
 

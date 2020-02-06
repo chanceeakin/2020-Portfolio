@@ -17,6 +17,7 @@
     "prod": "npm run build serve",
     "serve": "serve -p 8080 release",
     "watch:rs": "cargo web start --release",
+    "watch:styles": "node-sass --watch scss/client.scss --include-path scss scss/client.scss css/client.css",
     "test": "echo \"Error: no tests!\" && exit 1"
   },
   "dependencies": {

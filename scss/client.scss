@@ -1,14 +1,17 @@
 html,
 body {
-  font-family: "Inconsolata", monospace;
-}
+  font-family: "Inconsolata", monospace; }
+
+body {
+  background-image: url(map2.png);
+  align-items: center; }
 
 .title-container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+  color: white; }
 
 .title {
   font-weight: bold;
-}
+  color: white; }
