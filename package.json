@@ -21,10 +21,10 @@
     "test": "echo \"Error: no tests!\" && exit 1"
   },
   "dependencies": {
-    "node-sass": "4.13.0",
+    "node-sass": "4.13.1",
     "postcss": "7.0.25",
     "rollup-plugin-babel": "4.3.3",
-    "rollup-plugin-uglify": "6.0.3"
+    "rollup-plugin-uglify": "6.0.4"
   },
   "devDependencies": {
     "autoprefixer": "9.7.3",

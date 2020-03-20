@@ -15,3 +15,40 @@ body {
 .title {
   font-weight: bold;
   color: white; }
+
+.content {
+  width: 100%; }
+
+.typing-parent {
+  height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.7);
+  position: relative; }
+
+.typing-border {
+  border-bottom: solid 3px rgba(0, 255, 0, 0.75);
+  position: absolute;
+  right: -7px;
+  width: 20px; }
+
+/* Animation */
+.typing-parent {
+  animation: animated-text 2s steps(30, end) 1s 1 normal both; }
+
+.typing-border {
+  animation: animated-cursor 600ms steps(30, end) infinite; }
+
+/* text animation */
+@keyframes animated-text {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+
+/* cursor animations */
+@keyframes animated-cursor {
+  from {
+    border-bottom-color: rgba(0, 255, 0, 0.75); }
+  to {
+    border-bottom-color: transparent; } }

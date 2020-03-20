@@ -4,8 +4,11 @@ use core::time::Duration;
 use stdweb::web::Date;
 
 mod components;
+mod constants;
 
 use self::components::title::Title;
+use self::components::typing_content::TypingContent;
+use self::constants::text::TYPEWRITER_TEXT;
 use yew::services::{ConsoleService, IntervalService, Task};
 use yew::{html, Callback, Component, ComponentLink, Html, ShouldRender};
 
@@ -61,9 +64,6 @@ impl Component for Model {
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
             Msg::StartInterval => {
-                if let Some(mut task) = self.job.take() {
-                    task.cancel();
-                }
                 {
                     let handle = self
                         .interval
@@ -75,9 +75,6 @@ impl Component for Model {
                 self.console.log("Interval started!");
             }
             Msg::Cancel => {
-                if let Some(mut task) = self.job.take() {
-                    task.cancel();
-                }
                 self.console.warn("Canceled!");
                 self.console.assert(self.job.is_none(), "Job still exists!");
             }
@@ -98,6 +95,9 @@ impl Component for Model {
                         onclick=self.link.callback(|_| Msg::StartInterval)>{ "Start time" }</button>
                 <button disabled=!has_job
                         onclick=self.link.callback(|_| Msg::Cancel)>{ "Freeze time" }</button>
+                <div class="content">
+                  <TypingContent text={TYPEWRITER_TEXT}/>
+                </div>
             </div>
         }
     }
