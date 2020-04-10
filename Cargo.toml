@@ -14,7 +14,7 @@ strum_macros = "0.13"
 serde = "1"
 serde_derive = "1"
 stdweb = "0.4.20"
-yew = { version = "0.13.0", features = ["std_web"] }
+yew = { version = "0.14.1", features = ["std_web"] }
 
 
 [lib]
